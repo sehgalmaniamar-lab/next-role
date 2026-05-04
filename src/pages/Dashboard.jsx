@@ -1,4 +1,5 @@
 import React from 'react'
+import Sidebar  from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import { getAuth, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
