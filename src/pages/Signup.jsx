@@ -4,15 +4,15 @@ import { getAuth } from 'firebase/auth'
 import Navbar from '../components/Navbar'
 import SignupForm from '../components/SignupForm'
 
-export default function Signup() {
+export default function Signup({ user }) {
   const navigate = useNavigate()
   const auth = getAuth()
 
   useEffect(() => {
-    if (auth.currentUser) {
+    if (user) {
       navigate('/dashboard')
     }
-  }, [auth.currentUser, navigate])
+  }, [user, navigate])
 
   return (
     <>

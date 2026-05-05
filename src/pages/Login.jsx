@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getAuth } from 'firebase/auth'
 import Navbar from '../components/Navbar'
 import SignupForm from '../components/SignupForm'
 
-export default function Login() {
+export default function Login({ user }) {
   const navigate = useNavigate()
-  const auth = getAuth()
 
   useEffect(() => {
-    if (auth.currentUser) {
+    if (user) {
       navigate('/dashboard')
     }
-  }, [auth.currentUser, navigate])
+  }, [user, navigate])
 
   return (
     <>

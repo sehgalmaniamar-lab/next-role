@@ -1,13 +1,18 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import { getAuth, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { Search, Bell } from "lucide-react"
+import { useEffect } from 'react'
 
-export default function Dashboard() {
+export default function Dashboard({ user }) {
   const navigate = useNavigate()
   const auth = getAuth()
-  const user = auth.currentUser
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login')
+    }
+  }, [user, navigate])
 
   const handleLogout = async () => {
     await signOut(auth)
@@ -17,7 +22,6 @@ export default function Dashboard() {
   if (!user) {
     return (
       <div>
-        <Navbar />
         <div className='flex items-center justify-center w-full h-screen'>
           <div className='text-center'>
             <h1 className='text-2xl font-bold text-white mb-4'>Not logged in</h1>
@@ -34,9 +38,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
-      <Navbar />
-      <div className='ml-64 p-6 text-white'>
+    <div className='p-6 text-white'>
         <div className='flex items-center justify-between mb-6'>
           <div className='flex items-center bg-white/5 rounded-lg px-3 py-2 w-72'>
             <Search className="h-4 w-4 text-zinc-400 mr-2" />
@@ -73,6 +75,5 @@ export default function Dashboard() {
         </div>
 
       </div>
-    </div>
   )
 }
