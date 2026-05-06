@@ -183,6 +183,37 @@ export const roleCategories = [
   },
 ];
 
+export const marketRoles = [
+  {
+    title: "Frontend Developer",
+    match: 92,
+    salary: "₹12L - ₹18L",
+    growth: "+18%",
+    skills: ["React", "Tailwind", "JavaScript"],
+  },
+  {
+    title: "Full Stack Developer",
+    match: 87,
+    salary: "₹18L - ₹28L",
+    growth: "+25%",
+    skills: ["Node.js", "MongoDB", "React"],
+  },
+  {
+    title: "AI Product Engineer",
+    match: 74,
+    salary: "₹24L - ₹40L",
+    growth: "+41%",
+    skills: ["Python", "LLMs", "APIs"],
+  },
+  {
+    title: "UI Engineer",
+    match: 81,
+    salary: "₹14L - ₹22L",
+    growth: "+16%",
+    skills: ["Animations", "CSS", "React"],
+  },
+];
+
 export const userSkills = [
   {
     name: "React",
