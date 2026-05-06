@@ -13,7 +13,7 @@ body {
     ),
     #09090b;
     
-  color: #f4f4f5;           /* zinc-100 */
+  color: #a1a1aa;           /* zinc-100 */
   font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.5;
 
@@ -21,10 +21,6 @@ body {
 
 h1, h2, h3, h4 {
   font-weight: 600;
-}
-
-p {
-  color: #a1a1aa; /* zinc-400 */
 }
 
 /* NextRole Color Scheme (Dark Theme)
