@@ -1,0 +1,143 @@
+export const userProfile = {
+  name: "Kushagra Kaushik",
+  role: "Aspiring Full Stack Developer",
+  level: "Intermediate",
+  profileStrength: 82,
+  streak: 14,
+  completedPaths: 3,
+  skillsCompleted: 18,
+};
+
+export const stats = [
+  {
+    title: "Skills Added",
+    value: 18,
+    change: "+4 this week",
+  },
+  {
+    title: "Matching Roles",
+    value: 12,
+    change: "+2 new matches",
+  },
+  {
+    title: "Learning Paths",
+    value: 5,
+    change: "2 in progress",
+  },
+  {
+    title: "Profile Strength",
+    value: "82%",
+    change: "+6%",
+  },
+];
+
+export const marketRoles = [
+  {
+    title: "Frontend Developer",
+    match: 92,
+    salary: "₹12L - ₹18L",
+    growth: "+18%",
+    skills: ["React", "Tailwind", "JavaScript"],
+  },
+  {
+    title: "Full Stack Developer",
+    match: 87,
+    salary: "₹18L - ₹28L",
+    growth: "+25%",
+    skills: ["Node.js", "MongoDB", "React"],
+  },
+  {
+    title: "AI Product Engineer",
+    match: 74,
+    salary: "₹24L - ₹40L",
+    growth: "+41%",
+    skills: ["Python", "LLMs", "APIs"],
+  },
+  {
+    title: "UI Engineer",
+    match: 81,
+    salary: "₹14L - ₹22L",
+    growth: "+16%",
+    skills: ["Animations", "CSS", "React"],
+  },
+];
+
+export const userSkills = [
+  {
+    name: "React",
+    progress: 82,
+  },
+  {
+    name: "JavaScript",
+    progress: 91,
+  },
+  {
+    name: "Tailwind CSS",
+    progress: 88,
+  },
+  {
+    name: "Firebase",
+    progress: 64,
+  },
+  {
+    name: "Node.js",
+    progress: 48,
+  },
+];
+
+export const learningRoadmap = [
+  {
+    step: 1,
+    title: "Master Advanced React",
+    duration: "2 Weeks",
+    status: "completed",
+  },
+  {
+    step: 2,
+    title: "Build Backend APIs",
+    duration: "3 Weeks",
+    status: "in-progress",
+  },
+  {
+    step: 3,
+    title: "Learn Authentication & Security",
+    duration: "1 Week",
+    status: "pending",
+  },
+  {
+    step: 4,
+    title: "Deploy Full Stack Projects",
+    duration: "1 Week",
+    status: "pending",
+  },
+];
+
+export const activityFeed = [
+  {
+    action: "Completed React Hooks Module",
+    time: "2h ago",
+  },
+  {
+    action: "Unlocked Full Stack Path",
+    time: "Yesterday",
+  },
+  {
+    action: "Added Firebase Authentication Skill",
+    time: "2 days ago",
+  },
+];
+
+export const recommendations = [
+  {
+    title: "Learn TypeScript",
+    reason: "Required in 78% of matching roles",
+  },
+  {
+    title: "Build 2 Backend Projects",
+    reason: "Improves Full Stack match by +12%",
+  },
+  {
+    title: "Practice System Design",
+    reason: "Recommended for senior-level roles",
+  },
+];

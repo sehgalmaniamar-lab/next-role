@@ -23,16 +23,16 @@ export default function Navbar({user}) {
   return (
     <>
       {!side ? (
-        <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between border-b border-white/10 bg-[#070b14]/90 px-6 py-4 backdrop-blur-xl">
-          <Link to="/" className="text-xl font-semibold tracking-tight text-violet-400">
+        <nav className="fixed left-0 top-0 z-50 flex w-full items-center justify-between px-10 py-8 backdrop-blur-xl">
+          <Link to="/" className="text-3xl font-semibold tracking-tight text-violet-400">
             NextRole
           </Link>
 
           <div className="flex items-center gap-3 text-sm font-medium">
-            <Link to="/login" className="rounded-full px-4 py-2 text-zinc-300 transition hover:bg-white/5 hover:text-white">
+            <Link to="/login" className="rounded-full text-[18px] mr-2 px-4 py-2 text-zinc-300 transition hover:bg-white/5 hover:text-white">
               Login
             </Link>
-            <Link to="/signup" className="rounded-full bg-violet-500 px-4 py-2 text-white transition hover:bg-violet-600">
+            <Link to="/signup" className="rounded-full bg-violet-500 px-4 py-2 text-[18px] transition hover:bg-violet-600 hover:text-white">
               Sign up
             </Link>
           </div>
@@ -55,7 +55,7 @@ export default function Navbar({user}) {
                   <div
                     className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-200
                     ${isActive 
-                      ? "bg-violet-500/20 text-white" 
+                      ? "bg-violet-500/20" 
                       : "hover:bg-white/5 hover:text-white"
                     }`}
                   >
