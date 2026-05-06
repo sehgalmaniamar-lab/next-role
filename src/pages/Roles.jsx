@@ -33,44 +33,66 @@ export default function Roles() {
       </div>
       {/* Roles Content */}
       <div>
-        <div>
-          <h1>Explore Roles</h1>
-          <p className='text-white/5'>Discover roles and find the best path for your career.</p>
+        <div className="mb-6">
+          <h1 className="text-3xl font-semibold mb-2">Explore Roles</h1>
+
+          <p className="text-zinc-400">
+            Discover roles and find the best path for your career.
+          </p>
         </div>
-        <div className='flex items-center gap-4'>
-        {roleCategories.map((type,index)=>{
-          return(<button 
-            key={index}
-            className={`rounded-lg px-4 py-1 cursor-pointer ${acitvecategories===index? "bg-violet-600" : "bg-white/5" }`}
-            onClick={()=>setActivecategories(index)}
-            >
-              {type.type}
-            </button>
-          )
-        })}
-        </div>
-        <div className='grid grid-cols-4 gap-4 mt-6'>
-          {roleCategories[acitvecategories].roles.map((role,index)=>{
-            return(<div className='flex flex-col bg-white/5 rounded-2xl p-5 border border-white/10 hover:border-violet-500/30 transition' key={index}>
-              <h1>{role.title}</h1>
-              <p>{role.match}% Match</p>
-              <p>{role.description}</p>
-              <div className="flex flex-wrap gap-2 mt-4"
+
+        <div className="flex items-center gap-3 mb-6">
+          {roleCategories.map((type, index) => {
+            return (
+              <button
+                key={index}
+                className={`rounded-lg px-4 py-2 text-sm font-medium cursor-pointer transition ${
+                  acitvecategories === index
+                    ? "bg-[#6D4AFF] text-white"
+                    : "bg-white/5 text-zinc-300 hover:bg-white/10"
+                }`}
+                onClick={() => setActivecategories(index)}
               >
-                {role.skills.map((skill)=>{
-                  return(
-                    <div className="bg-violet-500/10 text-violet-300 px-3 py-1 rounded-full text-x" key={skill.id}>
-                      <p>{skill}</p></div>
-                  )
-                })}
+                {type.type}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="grid grid-cols-3 gap-5 mt-6">
+          {roleCategories[acitvecategories].roles.map((role, index) => {
+            return (
+              <div
+                className="flex flex-col bg-white/5 rounded-2xl p-5 border border-white/10 hover:border-violet-500/30 transition-all duration-300 hover:bg-white/[0.07]"
+                key={index}
+              >
+                <h1 className="text-xl font-semibold mb-1">{role.title}</h1>
+
+                <p className="text-sm text-violet-300 mb-3">
+                  {role.match}% Match
+                </p>
+
+                <p className="text-sm text-zinc-400 leading-6 mb-5">
+                  {role.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {role.skills.map((skill) => {
+                    return (
+                      <div
+                        className="bg-violet-500/10 text-violet-300 px-3 py-1 rounded-full text-xs border border-violet-500/10"
+                        key={skill.id}
+                      >
+                        <p>{skill}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              </div>
-            )
+            );
           })}
         </div>
       </div>
-
-
     </div>
   );
 }
