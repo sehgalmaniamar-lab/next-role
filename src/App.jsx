@@ -23,7 +23,7 @@ function App() {
   // Single fetch point — module-level cache prevents duplicate calls
   useEffect(() => {
     getJobsData().then((result) => {
-      setGroupedJobs(result.groupedJobs)
+      setGroupedJobs(result.groupedJobs) 
       setJobsLoading(false)
     })
   }, [])
