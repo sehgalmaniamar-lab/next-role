@@ -7,6 +7,7 @@ import { stats, marketRoles } from '../data/mockData'
 import Role from '../components/Role'
 import StatCard from '../components/StatCard'
 import heroImage from '../assets/HeroImage.png'
+import Topbar from "../components/Topbar"
 
 export default function Dashboard({ user }) {
   const navigate = useNavigate()
@@ -37,6 +38,7 @@ export default function Dashboard({ user }) {
 
   return (
     <div className='flex mx-20 mt-10 flex-col gap-8'>
+        <Topbar/>
       <div className='border border-zinc-800 w-fit flex flex-row items-center justify-between rounded-3xl bg-linear-to-r from-violet-500/10 via-[#111117] to-[#111117] pl-10 backdrop-blur'>
         <div className='flex flex-col gap-3'>
           <h1 className='text-4xl font-bold text-shadow-[0_0_0.5px_white] text-white'>What's your</h1>

@@ -8,6 +8,7 @@ import Roles from './pages/Roles'
 import Navbar from './components/Navbar'
 import { getAuth } from 'firebase/auth'
 import Skills from './pages/Skills'
+import Profile from './pages/Profile'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -36,6 +37,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/roles" element={<Roles />} />
           <Route path="/skills" element={<Skills />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
     </div>
