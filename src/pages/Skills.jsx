@@ -1,12 +1,23 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+
 
 export default function Skills(){
 
-    const [count,setcount]=useState(0)
-    const [Skills,setSkills]=useState([])
-    const [newSkill,setNewSkill]=useState("")
+    const [Skills, setSkills] = useState(() => {
+      const savedSkills = localStorage.getItem("Skills");
 
+      return savedSkills ? JSON.parse(savedSkills) : [];
+    });
+    const [newSkill,setNewSkill]=useState("")
+    
+
+    useEffect(()=>{
+        localStorage.setItem(
+            "Skills",
+            JSON.stringify(Skills)
+        )
+    },[Skills])
 
     const addSkill=()=>{
         if (newSkill.trim()==="") return;
@@ -33,9 +44,9 @@ export default function Skills(){
                 <button className="bg-violet-500 text-white rounded-lg p-3" onClick={addSkill}>Add Skill</button>
             </div>
             <div>
-                <h1>Your Skills ({count})</h1>
-                {Skills.map((skill)=>{
-                    return(<div key={skill.id}>{skill}</div>
+                <h1>Your Skills ({Skills.length})</h1>
+                {Skills.map((skill,index)=>{
+                    return(<div key={index}>{skill}</div>
                     )
                 })}
             </div>
