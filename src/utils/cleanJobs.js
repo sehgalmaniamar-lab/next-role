@@ -22,22 +22,6 @@ const knownSkills = [
 	"Figma",
 ];
 
-const nonProgrammingKeywords = [
-	"sales",
-	"support",
-	"bpo",
-	"call center",
-	"customer success",
-	"account manager",
-	"hr",
-	"recruiter",
-	"finance",
-	"marketing",
-	"content writer",
-	"operations",
-	"business analyst",
-];
-
 const frontendKeywords = [
 	"frontend",
 	"front-end",
@@ -87,29 +71,8 @@ function extractSkills(description = "") {
 	);
 }
 
-function getMatchScore(job) {
-	const text = `${job.job_title || ""} ${job.job_description || ""}`.toLowerCase();
-	let score = 68;
-
-	if (includesAny(text, ["senior", "lead", "principal"])) {
-		score += 8;
-	}
-	if (includesAny(text, ["react", "node", "typescript", "python", "java", "aws"])) {
-		score += 10;
-	}
-	if (job.job_is_remote) {
-		score += 6;
-	}
-
-	return Math.min(score, 98);
-}
-
 function isProgrammingTechJob(job) {
 	const text = `${job.job_title || ""} ${job.job_description || ""}`.toLowerCase();
-
-	if (includesAny(text, nonProgrammingKeywords)) {
-		return false;
-	}
 
 	return includesAny(text, [
 		"developer",
@@ -127,6 +90,8 @@ function isProgrammingTechJob(job) {
 		"python",
 		"java",
 	]);
+
+    return false;
 }
 
 function inferCategory(job) {
@@ -144,7 +109,7 @@ function formatSalary(job) {
 
 	const min = job.job_min_salary;
 	const max = job.job_max_salary;
-	const period = job.job_salary_period || "year";
+	const period = job.job_salary_period || "YEAR";
 
 	if (min || max) {
 		return `${min || "NA"} - ${max || "NA"} / ${period}`;
@@ -158,10 +123,9 @@ export function normalizeJobs(jobs = []) {
 	}
 
 	return jobs
-		.filter(Boolean)
 		.filter(isProgrammingTechJob)
 		.map((job, index) => ({
-			id: job.job_id || `${job.job_title || "job"}-${index}`,
+			id: job.job_id,
 			title: job.job_title || "Software Engineer",
 			company: job.employer_name || "Unknown Company",
 			location: job.job_location || "Remote",
@@ -169,12 +133,10 @@ export function normalizeJobs(jobs = []) {
 			type: job.job_employment_type || "Full-time",
 			remote: Boolean(job.job_is_remote),
 			posted: job.job_posted_at_datetime_utc || job.job_posted_at || "",
-			skills: extractSkills(job.job_description || ""),
+			skills: extractSkills(job.job_description || []),
 			description: job.job_description || "No description provided",
 			applyLink: job.job_apply_link || "#",
 			logo: job.employer_logo || "",
-			growth: "+10%",
-			match: getMatchScore(job),
 			category: inferCategory(job),
 		}));
 }

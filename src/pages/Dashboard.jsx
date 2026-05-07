@@ -48,7 +48,7 @@ function LiveRoleCard({ job }) {
         <p className="text-xs text-zinc-400">{job.match}% Match</p>
         <div className="h-1 rounded-full bg-zinc-800 overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-violet-500 to-indigo-500 transition-all duration-700"
+            className="h-full bg-linear-to-r from-violet-500 to-indigo-500 transition-all duration-700"
             style={{ width: `${job.match}%` }}
           />
         </div>
