@@ -18,8 +18,8 @@ export async function getJobsData() {
     });
 
     const rawJobs = response.data.data.jobs || [];
+    console.log("Raw jobs fetched:", rawJobs);
     const jobs = normalizeJobs(rawJobs);
-    console.log(jobs)
     const groupedJobs = categorizeJobs(jobs);
 
     return { jobs, groupedJobs };

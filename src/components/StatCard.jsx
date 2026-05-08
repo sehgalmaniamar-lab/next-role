@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function StatCard({stat, tag}) {
-  const savedSkills=JSON.parse(localStorage.getItem("Skills"))
+  const savedSkills=JSON.parse(localStorage.getItem("Skills"))||[]
   return (
     <div className={`p-3 px-8 bg-violet-500/10 rounded-xl flex items-center gap-6 border-zinc-800 border cursor-pointer transition-all ease-in-out hover:bg-violet-500/20`}>
         <div className={`p-2 ${tag.iconColor} rounded-[10px] inline-flex`}>
